@@ -1,0 +1,23 @@
+<div class="toolbar">
+
+    <div class="location">
+        <a href="<%=url(request, "browse.jsp")%>">Collection</a>
+        <%=breadcrumbs(request, new File(settings.rootDir, pfile))%>
+    </div>
+
+    <div class="search">
+        <form action="<%=url(request, "search.jsp")%>">
+            <input type="hidden" name="file" value="<%=pfile%>">
+
+            <input type="text" name="search" value="<%=psearch%>">
+            <input type="submit" value="Search">
+
+            <script>
+                var input = document.forms[0].search;
+                input.focus();
+                input.setSelectionRange(input.value.length, input.value.length);
+            </script>
+        </form>
+    </div>
+
+</div>

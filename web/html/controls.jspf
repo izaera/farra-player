@@ -1,0 +1,37 @@
+<div class="controls">
+
+    <a href="<%=url(request, "control.jsp", "cmd", "play")%>">
+        <%=img(request, "play.png", "Play", "24pt", "24pt")%>
+    </a>
+    <a href="<%=url(request, "control.jsp", "cmd", "pause")%>">
+        <%=img(request, "pause.png", "Pause", "24pt", "24pt")%>
+    </a>
+    <a href="<%=url(request, "control.jsp", "cmd", "stop")%>">
+        <%=img(request, "stop.png", "Stop", "24pt", "24pt")%>
+    </a>
+
+    <div class="separator"></div>
+
+    <a href="<%=url(request, "control.jsp", "cmd", "prev")%>">
+        <%=img(request, "prev.png", "Prev", "24pt", "24pt")%>
+    </a>
+    <a href="<%=url(request, "control.jsp", "cmd", "next")%>">
+        <%=img(request, "next.png", "Next", "24pt", "24pt")%>
+    </a>
+
+    <div class="separator"></div>
+
+    <a href="<%=url(request, "control.jsp", "cmd", "voldown")%>">
+        <%=img(request, "voldown.png", "Volume down", "24pt", "24pt")%>
+    </a>
+    <a href="<%=url(request, "control.jsp", "cmd", "volup")%>">
+        <%=img(request, "volup.png", "Volume up", "24pt", "24pt")%>
+    </a>
+
+    <div class="separator"></div>
+
+    <a href="<%=url(request, "playlist.jsp")%>">
+        <%=img(request, "playlist.png", "Playlist", "24pt", "24pt")%>
+    </a>
+
+</div>

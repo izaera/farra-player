@@ -1,0 +1,28 @@
+<div class="item">
+
+    <span class="actions">
+        <a href="<%=url(request, "control.jsp", "cmd", "add", "file", relPath(item))%>">
+            <%=img(request, "attach.png", "Add to playlist", "12pt", "12pt")%>
+        </a>
+        <a href="<%=url(request, "control.jsp", "cmd", "play_next", "file", relPath(item))%>">
+            <%=img(request, "goto.png", "Play next", "12pt", "12pt")%>
+        </a>
+        <a href="<%=url(request, "control.jsp", "cmd", "play_now", "file", relPath(item))%>">
+            <%=img(request, "play.png", "Play now", "12pt", "12pt")%>
+        </a>
+    </span>
+
+    <%if (item.isDirectory()) {%>
+        <a class="title" href="<%=url(request, "browse.jsp", "file", relPath(item))%>">
+            <%=img(request, "folder.png", "Folder", "12pt", "12pt")%>
+            <%=highlight(title, psearch)%>
+        </a>
+    <%} else {%>
+        <a class="title" href="<%=url(request, "control.jsp", "cmd", "add", "file", relPath(item))%>">
+            <%=img(request, "music.png", "Song", "12pt", "12pt")%>
+            <%=highlight(title, psearch)%>
+        </a>
+    <%}%>
+
+</div>
+

@@ -1,0 +1,22 @@
+<%
+    String psearch = request.getParameter("search");
+    if (psearch==null) {
+        psearch = "";
+    }
+
+    String pfile = request.getParameter("file");
+    if (pfile==null) {
+        pfile = "";
+    }
+
+    String pcmd = request.getParameter("cmd");
+    if (pcmd==null) {
+        pcmd = "";
+    }
+
+    String _pindex = request.getParameter("index");
+    if (_pindex==null) {
+        _pindex = "-1";
+    }
+    int pindex = Integer.valueOf(_pindex);
+%>

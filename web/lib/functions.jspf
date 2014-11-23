@@ -1,0 +1,83 @@
+<%!
+    String url(HttpServletRequest request, String path, String...args) {
+        String url = request.getContextPath()+"/"+path;
+
+        for (int i=0; i<args.length; i+=2) {
+            if (i == 0) {
+                url += "?";
+            } else {
+                url += "&";
+            }
+
+            url += args[i]+"="+args[i+1];
+        }
+
+        return url;
+    }
+
+    String img(HttpServletRequest request, String name, String title, String width, String height) {
+        return "<img src='"+request.getContextPath()+"/img/"+name+"'"+
+                " title='"+title+"' style='width: "+width+"; height: "+height+"; vertical-align: bottom'>";
+    }
+
+    String relPath(File file) {
+        String absPath = file.getAbsolutePath();
+        String rootAbsPath = settings.rootDir.getAbsolutePath();
+
+        if (absPath.length() <= rootAbsPath.length()) {
+            return "";
+        } else {
+            return absPath.substring(rootAbsPath.length()+1);
+        }
+    }
+
+    String breadcrumbs(HttpServletRequest request, File dir) {
+        String relPath = relPath(dir);
+        String[] parts = relPath.split("/");
+
+        String html = "";
+        String pfile = "";
+        for (String part : parts) {
+            if(!pfile.isEmpty()) {
+                pfile += "/";
+            }
+            pfile += part;
+
+            html += " / ";
+            html += "<a href='"+url(request, "browse.jsp", "file", pfile)+"'>";
+            html += part;
+            html +="</a>";
+        }
+
+        return html;
+    }
+
+    String prettyPath(String path) {
+        String[] parts = path.split("/");
+
+        String html = "";
+        for (int i=0; i<parts.length; i++) {
+            if (i > 0) {
+                html += " / ";
+            }
+            html += parts[i];
+        }
+
+        return html;
+    }
+
+    String highlight(String line, String search) {
+        int begin = line.toLowerCase().indexOf(search.toLowerCase());
+
+        if (begin != -1) {
+            int end = begin+search.length();
+            line = line.substring(0, begin) +
+                    "<span class='highlight'>" +
+                    line.substring(begin, end) +
+                    "</span>"+
+                    line.substring(end);
+        }
+
+        return line;
+    }
+%>

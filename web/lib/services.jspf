@@ -1,0 +1,5 @@
+<%!
+    Settings settings = Settings.get();
+    Playlist playlist = Playlist.get();
+    Util util = Util.get();
+%>
