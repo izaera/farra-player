@@ -1,4 +1,4 @@
-package farraplayer;
+package farraplayer.players;
 
 /**
  * @author Ivan Zaera
